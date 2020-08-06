@@ -131,3 +131,91 @@ node_modules
 ```
 
 ## Adding Express to a Node app
+
+First you would create your directory
+```
+mkdir hello-express
+```
+Initialize node
+```
+cd hello-express
+npm init
+```
+Then install express
+```
+npm i express
+```
+You will notice your get a node_modules folder for express as well as express will be in your package.json under dependencies.
+see hello-express in codealongs for examples.
+
+## Routes 
+
+A route is a combination of a URL pattern and HTTP Verb.
+
+HTTP Verb
+* get = read
+* post = create
+* put = update
+* delete = delete
+
+also see hello-express in codealongs for examples
+```
+const hello = (req, res) => {
+  res.send('Hello, World!');
+}
+
+app.get('/', hello);
+```
+The request and response Objects
+
+request
+* req.body - this is where any submitted form data will be stored for us.
+* req.params - this is where special route variables are stored for us.
+* req.query - this is where the query string data is stored.
+
+response
+* res.send() - sends back a simple string. Not really used in production. This is kind of like the console.log() for network requests. Good for testing if the route is working.
+* res.sendFile() - more sophisticated in that it can send an entire file back but file is static.
+* res.render() - used to render data into templates with the selected template engine. More on this later.
+* res.json() - used to send object data back as JSON. Very common when writing a backend API. Much more on this later.
+
+Paths
+
+```
+app.get('/', (req, res) => {
+  res.send('You've reached the home route!');
+});
+
+app.get('/about', (req, res) => {
+  res.send('This is a practice app to learn about express routes.');
+});
+```
+
+Parameters
+
+```
+app.get('/', (req, res) => {
+  res.send("You've reached the home route!");
+});
+
+app.get('/about', (req, res) => {
+  res.send('This is a practice app to learn about express routes.');
+});
+
+app.get('/:input', (req, res) => {
+  res.send("Our parameter is " + req.params.input + ".");
+});
+```
+
+You can also combine Paths and Parameters
+
+```
+app.get("/greet/:name", (req, res) => {
+  res.send("Hello " + req.params.name + "!");
+});
+```
+
+## Views 
+
+
+
