@@ -217,5 +217,21 @@ app.get("/greet/:name", (req, res) => {
 
 ## Views 
 
+To make a personal website you first would stub out the route for the home, about, and blog page. You do this by using the HTTP Verb GET as well as the URL Pattern and a Message. Example:
+```
+Home
+GET
+/
+"This is the Home Page!"
+```
 
+You would then create a views folder inside your project called views with an index.html, about.html, and blog-directory.html and put some basic html files in them for you to test. In your routes, replace the res.send(<message>) with res.sendFile(<absolute file path>)
 
+home route example:
+```
+app.get('/', function(req, res) {
+  res.sendFile(__dirname+'/views/index.html');
+});
+```
+
+## Templates 
