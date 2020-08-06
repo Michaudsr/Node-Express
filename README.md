@@ -235,3 +235,45 @@ app.get('/', function(req, res) {
 ```
 
 ## Templates 
+
+Template engines allow us to inject values into the HTML, and even script logic into the HTML. 
+EJS: Embedded Javascript
+
+First Install EJS
+```
+npm install ejs
+```
+Set your view engine to EJS
+```
+app.set('view engine', 'ejs');
+```
+You then need to change your files from .html to .ejs files. Replace your res.sendFile(<absolute path>) statements with res.render(<file name>) statements.
+
+Your home route would look like this:
+```
+app.get('/', function(req, res) {
+  res.render('index.ejs');
+});
+```
+
+## Layouts and Controllers
+
+Install your EJS layouts
+```
+npm install express-ejs-layouts
+```
+
+Set up your layout
+
+```
+var express = require('express');
+var app = express();
+var ejsLayouts = require('express-ejs-layouts');
+
+app.set('view engine', 'ejs');
+app.use(ejsLayouts);
+
+app.listen(3000)
+
+```
+
