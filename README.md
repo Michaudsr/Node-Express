@@ -94,3 +94,9 @@ There are three types of node modules
 * Core Modules (like fs) 
 * Local Modules (that you create) 
 * Third Party Modules
+
+NPM
+NPM is the largest open-source software registry in the world. It includes a website, a registry of Node Packages, and a command line interface that allows us to easily incorporate packages into our programs.
+
+Nodemon is a package that makes developing node apps easier. It restarts the application everytime you save changes to your code.
+
