@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Michaudsr/Node-Express-/issues"
   },
-  "homepage": "https://github.com/Michaudsr/Node-Express-#readme"
+  "homepage": "https://github.com/Michaudsr/Node-Express-#readme",
+  "dependencies": {
+    "moment": "^2.27.0"
+  }
 }

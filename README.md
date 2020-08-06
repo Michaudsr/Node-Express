@@ -95,8 +95,39 @@ There are three types of node modules
 * Local Modules (that you create) 
 * Third Party Modules
 
-NPM
+
 NPM is the largest open-source software registry in the world. It includes a website, a registry of Node Packages, and a command line interface that allows us to easily incorporate packages into our programs.
 
 Nodemon is a package that makes developing node apps easier. It restarts the application everytime you save changes to your code.
 
+To install Nodemon globally type:
+```
+npm i -g nodemon
+```
+To run Nodemon in your command line type
+```
+nodemon
+```
+To quit nodemon
+```
+CTRL+C
+```
+
+A third party module you can use is moment which allows you to print data in
+a easier to read way.
+To install moment you would go to the folder you would want to use it in and type
+```
+npm i moment
+```
+After installing make sure there is a folder called node_modules in the folder you installed it in
+
+Node-models folders can be huge and don't need to be pushed to github for this you would use gitignore. Type in the command line
+```
+touch .gitignore
+```
+Then go to the .gitignore folder and type in there
+```
+node_modules
+```
+
+## Adding Express to a Node app
