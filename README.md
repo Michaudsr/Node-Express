@@ -280,7 +280,7 @@ app.listen(3000)
 ## PokeDex Readme
 
 ### Index route
-The first thing I did was build my routes, I started with the Index.ejs route to the favoirtes.ejs. Because i wanted to get all the pokemons information, in this case just being the name I started with router.get. Then i used a async function, passing in req, res. Within that i used a try statement which allows you to test the code you pass into it. I created a variable pokeFind which was defined by the database, the object pokemon and a function findAll(), so that i could get data from all the pokemon. After defining the variable i rendered them to my favorites database using the object pokemon and the key i created pokefind. I then used a catch to catch any errors. I also did this same route without using asnyc which i commented out.
+The first thing I did was build my routes, I started with the Index.ejs route to the favoirtes.ejs. Because i wanted to get all the pokemons information, in this case just being the name I started with router.get. Then i used a async function, passing in req, res. Within that i used a try statement which allows you to test the code you pass into it. I created a variable pokeFind which was defined by the database, the key pokemon and a function findAll(), so that i could get data from all the pokemon. After defining the variable i rendered them to my favorites database using the key pokemon and the value i created pokefind. I then used a catch to catch any errors. I also did this same route without using asnyc which i commented out.
 ```
   router.get('/', async (req, res) => {
     try{
@@ -294,7 +294,7 @@ The first thing I did was build my routes, I started with the Index.ejs route to
 
 ### Post Favorites route
 
-I created a router.post to post the favorited pokemon to my favorites page, i also did this using a asnyc function. In the try statement i used the database with the object pokemon and the findOrCreate function and within there i defined where i would find the name of the object using req.body.name. I would then redirect it to the favorites page or the /pokemon page. I also used a catch to catch and errors on this as well.
+I created a router.post to post the favorited pokemon to my favorites page, i also did this using a asnyc function. In the try statement i used the database with the key pokemon and the findOrCreate function and within there i defined where i would find the name of the object using req.body.name. I would then redirect it to the favorites page or the /pokemon page. I also used a catch to catch and errors on this as well.
 ```
 router.post('/', async (req, res) => {
   
@@ -350,4 +350,20 @@ router.delete('/', async (req, res) => {
     res.send("err");
   }
 });
+```
+```
+<h2>Favorite Pokemon</h2>
+<% pokemon.forEach(function(pokemon) { %>
+    <div class="well">
+      <h2>
+          <a href="/pokemon/<%= pokemon.name %>">
+            <%= pokemon.name %>
+        </a>
+    </h2>
+      <form method="POST" action="/pokemon?_method=DELETE">
+        <input hidden type="text" name="name" value="<%= pokemon.name %>">
+        <button class="btn btn-primary" type="submit">Delete Pokemon</button>
+      </form>
+    </div>
+  <% }); %>
 ```
